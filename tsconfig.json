@@ -1,0 +1,29 @@
+{
+  "extends": "fastify-tsconfig",
+  "compilerOptions": {
+    "outDir": "dist",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "Static": ["static"],
+      "Static/*": ["static/*"],
+      "AlphaData": ["static/alphaData"],
+      "Controllers": ["src/lib/controllers"],
+      "Controllers/*": ["src/lib/controllers/*"],
+      "AlphaController": ["src/lib/controllers/alpha"],
+      "AlphaController/*": ["src/lib/controllers/alpha/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts"]
+}
