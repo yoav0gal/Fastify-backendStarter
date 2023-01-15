@@ -11,8 +11,6 @@ function isUnsecured(path: string) {
   if (path.length > 1 && path.slice(-1) === "/") {
     path = path.substring(0, path.length - 1);
   }
-  console.log(path);
-  console.log(UNSECURED_PATHS.get(path));
   return UNSECURED_PATHS.get(path);
 }
 

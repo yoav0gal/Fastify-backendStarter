@@ -1,5 +1,4 @@
-// import alphaMembers from "AlphaData";
-import alphaMembers from "../../../../static/alphaData";
+import alphaMembers from "AlphaData";
 import { FastifyRequest, FastifyReply } from "fastify";
 
 /** Return an Alpha member based on his id */

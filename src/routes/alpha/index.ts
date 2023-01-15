@@ -1,9 +1,5 @@
 import { FastifyPluginAsync } from "fastify";
-// import { getAllMembers, getById } from "AlphaController/alphaServices";
-import {
-  getAllMembers,
-  getById,
-} from "../../lib/controllers/alpha/alphaServices";
+import { getAllMembers, getById } from "AlphaController/alphaServices";
 
 const AlphaRoutes: FastifyPluginAsync = async (
   fastify,

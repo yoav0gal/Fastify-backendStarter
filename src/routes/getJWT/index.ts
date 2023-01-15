@@ -1,5 +1,5 @@
 import { FastifyPluginAsync } from "fastify";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../static/cookiesNames";
+import { ACCESS_TOKEN } from "EnvironmentVariables";
 
 const JWTRoutes: FastifyPluginAsync = async (
   fastify,
@@ -8,32 +8,22 @@ const JWTRoutes: FastifyPluginAsync = async (
   fastify.get("/", async (_request, reply) => {
     const accessToken = await reply.jwtSign(
       {
-        name: "Lior",
+        name: "accessToken",
       },
-      { expiresIn: "10m" }
-    );
-
-    const refreshToken = await reply.jwtSign(
-      {
-        name: "Savion",
-      },
-      { expiresIn: "4h" }
+      { expiresIn: "1m" }
     );
 
     reply
-      .setCookie(REFRESH_TOKEN, refreshToken, {
-        path: "/",
-      })
       .setCookie(ACCESS_TOKEN, accessToken, {
         path: "/",
+        signed: true,
       })
       .code(200)
       .send({ access: "granted" });
   });
 
-  fastify.get("/onlyWithJWT", async function (request, _reply) {
-    //@ts-ignore
-    return request.user;
+  fastify.get("/onlyWithJWT", async function (_request, _reply) {
+    return "got Here!";
   });
 };
 

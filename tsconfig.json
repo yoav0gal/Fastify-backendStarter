@@ -18,12 +18,18 @@
       "Static": ["static"],
       "Static/*": ["static/*"],
       "AlphaData": ["static/alphaData"],
+      "UnsecuredPaths": ["static/unsecuredPaths"],
+      "Lib/*": ["src/lib/*"],
+      "Plugins/*": ["src/plugins"],
+      "Configs/*": ["configs/*"],
+      "Configs": ["configs"],
+      "EnvironmentVariables": ["configs/developmentTools/environmentVariables"],
       "Controllers": ["src/lib/controllers"],
       "Controllers/*": ["src/lib/controllers/*"],
       "AlphaController": ["src/lib/controllers/alpha"],
       "AlphaController/*": ["src/lib/controllers/alpha/*"]
     }
   },
-  "exclude": ["node_modules"],
-  "include": ["src/**/*.ts"]
+  "exclude": ["node_modules", "dist/**"],
+  "include": ["**/*.ts"]
 }

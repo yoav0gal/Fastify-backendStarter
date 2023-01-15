@@ -8,13 +8,13 @@
   },
   "types": "index.d.ts",
   "scripts": {
-    "test": "yarn build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
-    "start": "yarn build:ts && fastify start -l info dist/src/app.js",
-    "build": "rimraf dist && tsc",
-    "watch": "tsc --watch --preserveWatchOutput --pretty",
-    "dev:now": "yarn build && cross-env NODE_ENV=development nodemon",
-    "dev": "yarn build && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"yarn:watch\" \"yarn:dev:start\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/src/app.js",
+    "test": "yarn build && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
+    "start": "yarn build && fastify start -l info -L dist/configs/loggerConfigurations.js  dist/src/app.js",
+    "build": "rimraf dist && tsc && tsc-alias",
+    "watch": "tsc && (concurrently \"tsc -w  --preserveWatchOutput --pretty\" \"tsc-alias -w\")",
+    "predev": "yarn build",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\"  \"yarn watch\"  \"@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./localDevelopment.ps1\"",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -L dist/configs/loggerConfigurations.js dist/src/app.js",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "keywords": [],
@@ -44,11 +44,13 @@
     "cross-env": "^7.0.3",
     "fastify-tsconfig": "^1.0.1",
     "nodemon": "^2.0.20",
+    "pino-pretty": "^9.1.1",
     "prettier": "^2.8.1",
     "rimraf": "^3.0.2",
     "tap": "^16.1.0",
     "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.2",
     "tsconfig-paths": "^4.1.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.7.4"
   }
 }
