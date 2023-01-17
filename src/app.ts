@@ -14,9 +14,6 @@ const app: FastifyPluginAsync<AppOptions> = async (
   opts
 ): Promise<void> => {
   // Place here your custom code!
-
-  // Do not touch the following lines
-
   // This loads all plugins defined in plugins
   // those should be support plugins that are reused
   // through your application
@@ -30,6 +27,13 @@ const app: FastifyPluginAsync<AppOptions> = async (
   void fastify.register(AutoLoad, {
     dir: join(__dirname, "routes"),
     options: opts,
+  });
+
+  void fastify.register(AutoLoad, {
+    dir: join(__dirname, "controllers"),
+    options: {
+      index: /.*Routes(\.ts|\.js|\.cjs|\.mjs)$/,
+    },
   });
 };
 

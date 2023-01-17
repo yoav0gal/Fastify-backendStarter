@@ -5,8 +5,8 @@ const AlphaRoutes: FastifyPluginAsync = async (
   fastify,
   _options
 ): Promise<void> => {
-  fastify.get("/", getAllMembers);
-  fastify.get("/:id", getById);
+  fastify.get("/all", getAllMembers);
+  fastify.get("/all/:id", getById);
 };
 
 export default AlphaRoutes;

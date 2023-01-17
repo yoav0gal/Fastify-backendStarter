@@ -1,6 +1,9 @@
 import fastifyPlugin from "fastify-plugin";
 import fastifyJwt from "@fastify/jwt";
-import { SECRET_KEY, ACCESS_TOKEN } from "EnvironmentVariables";
+import {
+  SECRET_KEY,
+  ACCESS_TOKEN,
+} from "Configs/codeBasedTools/environmentVariables";
 import { verfiyJWT } from "Lib/other/jwtLogic";
 
 export default fastifyPlugin(async function (fastify, _options) {

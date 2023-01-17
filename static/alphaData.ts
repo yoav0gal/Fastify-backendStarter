@@ -13,7 +13,7 @@ let alphaMembers: Array<person> = [
   {
     id: "2",
     firstName: "Sivan",
-    lastName: "Alies",
+    lastName: "Elias",
   },
   {
     id: "3",

@@ -1,5 +1,5 @@
 import { FastifyPluginAsync } from "fastify";
-import { ACCESS_TOKEN } from "EnvironmentVariables";
+import { ACCESS_TOKEN } from "Configs/codeBasedTools/environmentVariables";
 
 const JWTRoutes: FastifyPluginAsync = async (
   fastify,

@@ -1,4 +1,4 @@
-export * from "./cookie";
+export * from "./cookies";
 export * from "./jwt";
 export * from "./support";
 export * from "./swagger";
