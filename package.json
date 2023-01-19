@@ -13,9 +13,10 @@
     "build": "rimraf dist && tsc && tsc-alias",
     "watch": "tsc && (concurrently \"tsc -w  --preserveWatchOutput --pretty\" \"tsc-alias -w\")",
     "predev": "yarn build",
-    "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\"  \"yarn watch\"  \"@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./localDevelopment.ps1\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -L dist/configs/loggerConfigurations.js dist/src/app.js",
-    "format": "prettier --write \"src/**/*.ts\""
+    "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\"  \"yarn watch\"  \"@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./configs/codeBasedTools/scripts/localDevelopment.ps1\"",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l fatal -L dist/configs/loggerConfigurations.js dist/src/app.js",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "genController": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./configs/codeBasedTools/scripts/generateController/generateController.ps1"
   },
   "keywords": [],
   "author": "Yoav Gal",
@@ -23,6 +24,7 @@
   "dependencies": {
     "@fastify/autoload": "^5.0.0",
     "@fastify/cookie": "^8.3.0",
+    "@fastify/error": "^3.2.0",
     "@fastify/jwt": "^6.5.0",
     "@fastify/sensible": "^5.0.0",
     "@fastify/swagger": "^8.2.1",

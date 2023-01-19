@@ -14,6 +14,16 @@
 
 במידה ולא שמרתם על מבנה זה תכינו תרוצים טובים , במידה והם לא יספיקו ה-cr **יכלול אלימות**.
 
+---
+
+<mark>טיפ ממש חשוב:</mark> כתבו בטרמינל שלכם את הפקודה
+
+`yarn/npm/pnpm genController [wanted controller name] `
+
+הפקודה תגנרט לכם את כל מה שאתם צריכים כדי להתחיל לעבוד על הקונטרולר שלכם
+
+---
+
 <ul>
 <li>
  <p>
@@ -30,14 +40,14 @@
 
 ```ts
 import { FastifyPluginAsync } from "fastify";
-import { getAllMembers, getById } from "AlphaController/alphaServices";
+import { getAllMembers, getById } from "./alphaServices";
 
 const AlphaRoutes: FastifyPluginAsync = async (
   fastify,
   _options
 ): Promise<void> => {
-  fastify.get("/all", getAllMembers);
-  fastify.get("/all/:id", getById);
+  fastify.get("/", getAllMembers);
+  fastify.get("/:id", getById);
 };
 
 export default AlphaRoutes;
@@ -87,7 +97,7 @@ export async function getAllMembers(
 
 ## **הוראות אילו נכתבו בדם!**
 
-![רחמני במערכת יחסים](../../static/controller.jpg "רחמני במערכת יחסים")
+![רחמני במערכת יחסים](../../static/pics/controller.jpg "רחמני במערכת יחסים")
 **תזהרו מהטייפ הזה**
 
 ---

@@ -7,14 +7,9 @@ GET {{local endpoint}}/alpha/
 GET {{local endpoint}}/
 
 ###
-GET  {{local endpoint}}/getJWT 
+GET  {{local endpoint}}/alpha/1
 
 ###
-GET  {{local endpoint}}/getJWT/cookies/ 
-###
-GET {{local endpoint}}/getJWT/onlyWithJWT
-content-type: application/json
+GET  {{local endpoint}}/jwt/onlywith
 
-{
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkYW0gU21pdGgiLCJpYXQiOjE2NzI2NjMyNzZ9.EBEKETmiONYbDfXhH3EiHEpJNk6FWzIjQVCdfqZ4snE"
-}
+###

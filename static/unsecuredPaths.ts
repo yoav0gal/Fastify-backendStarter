@@ -2,8 +2,7 @@
 const UNSECURED_PATHS = new Map<string, boolean>([
   ["/", true],
   ["/alpha", true],
-  ["/getJWT", true],
-  ["/getJWT/cookies", true],
+  ["/jwt", true],
 ]);
 
 /** Works for both paths /pathName and /pathName/ insted of add 2 entries to the map*/

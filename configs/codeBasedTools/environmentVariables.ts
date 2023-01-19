@@ -13,3 +13,6 @@ export const FASTIFY_CLOSE_GRACE_DELAY = Number(
 );
 export const APP_PORT = Number(loadEnvironmentVariable("APP_PORT"));
 export const ACCESS_TOKEN = loadEnvironmentVariable("ACCESS_TOKEN");
+export const ACCESS_TOKEN_EXPIRE = loadEnvironmentVariable(
+  "ACCESS_TOKEN_EXPIRE"
+);

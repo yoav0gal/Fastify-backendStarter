@@ -3,7 +3,8 @@ import fastifyJwt from "@fastify/jwt";
 import {
   SECRET_KEY,
   ACCESS_TOKEN,
-} from "Configs/codeBasedTools/environmentVariables";
+  ACCESS_TOKEN_EXPIRE,
+} from "EnvironmentVariables";
 import { verfiyJWT } from "Lib/other/jwtLogic";
 
 export default fastifyPlugin(async function (fastify, _options) {
@@ -14,9 +15,10 @@ export default fastifyPlugin(async function (fastify, _options) {
       signed: true,
     },
     sign: {
-      expiresIn: "1m",
+      expiresIn: ACCESS_TOKEN_EXPIRE,
     },
   });
 
   fastify.addHook("onRequest", verfiyJWT);
+  // fastify.addHook("onError")
 });
