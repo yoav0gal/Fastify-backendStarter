@@ -4,7 +4,7 @@ import { getAllMembersSchema, getByIdSchema } from "./alphaSchemas";
 
 const AlphaRoutes: FastifyPluginAsync = async (
   fastify,
-  _options
+  _optionsyo
 ): Promise<void> => {
   fastify.get("/", getAllMembersSchema, getAllMembers);
   fastify.get("/:id", getByIdSchema, getById);

@@ -27,7 +27,7 @@ let alphaMembers: Array<person> = [
   },
   {
     id: "5",
-    firstName: "Lior",
+    firstName: "Lior/King ",
     lastName: "Rachmani",
   },
 ];
