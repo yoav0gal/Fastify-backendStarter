@@ -1,5 +1,6 @@
 import { FastifyPluginAsync } from "fastify";
 import { generateJWT, haveJWTCheck } from "./jwtServices";
+import { haveJWTCheckSchema } from "./jwtSchemas";
 
 const exmpleRoutes: FastifyPluginAsync = async (
   fastify,
@@ -7,7 +8,7 @@ const exmpleRoutes: FastifyPluginAsync = async (
 ): Promise<void> => {
   fastify.get("/", generateJWT);
 
-  fastify.get("/onlywith", haveJWTCheck);
+  fastify.get("/onlywith", haveJWTCheckSchema, haveJWTCheck);
 };
 
 export default exmpleRoutes;
