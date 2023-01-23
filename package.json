@@ -1,8 +1,8 @@
 {
-  "name": "@alpha/backend-template",
+  "name": "@yoav0gal/backend-template",
   "version": "1.0.0",
   "description": "A fastify backend-template",
-  "main": "./server.ts",
+  "main": "./src/server.ts",
   "directories": {
     "test": "test"
   },
