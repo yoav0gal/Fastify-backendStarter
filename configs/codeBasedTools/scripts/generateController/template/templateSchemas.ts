@@ -1,4 +1,5 @@
 import { Type } from "@sinclair/typebox";
+import { RouteShorthandOptions } from "fastify";
 
 export const yoavIsTheBestSchema = {
   schema: {
@@ -6,4 +7,4 @@ export const yoavIsTheBestSchema = {
       200: Type.String(),
     },
   },
-};
+} satisfies RouteShorthandOptions;

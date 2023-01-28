@@ -1,41 +1,49 @@
 import { FastifyPluginAsync } from "fastify";
+import fastifyPlugin from "fastify-plugin";
 import swagger from "@fastify/swagger";
+import swaggerUI from "@fastify/swagger-ui";
+import { APPLICATION_NAME } from "EnvironmentVariables";
 
 /** Not working  */
-const root: FastifyPluginAsync = async (fastify, options): Promise<void> => {
+const swaggerPlugin: FastifyPluginAsync = async (
+  fastify,
+  options
+): Promise<void> => {
   fastify.register(swagger, {
     swagger: {
       info: {
-        title: "Test swagger",
-        description: "Testing the Fastify swagger API",
-        version: "0.1.0",
+        title: APPLICATION_NAME,
+        description: "Alpha-Beackend-Template created by Yoav Gal",
+        version: "1.0.0",
       },
       externalDocs: {
         url: "https://swagger.io",
-        description: "Find more info here",
+        description: "About swagger",
       },
-      host: "localhost",
+      host: "localhost:3447",
       schemes: ["http"],
       consumes: ["application/json"],
       produces: ["application/json"],
       tags: [
-        { name: "user", description: "User related end-points" },
-        { name: "code", description: "Code related end-points" },
+        { name: "JWT", description: "JWT related end-points" },
+        { name: "Alpha", description: "Alpha related end-points" },
       ],
-      definitions: {
-        User: {
-          type: "object",
-          required: ["id", "email"],
-          properties: {
-            id: { type: "string", format: "uuid" },
-            firstName: { type: "string" },
-            lastName: { type: "string" },
-            email: { type: "string", format: "email" },
-          },
-        },
-      },
     },
+  });
+
+  fastify.register(swaggerUI, {
+    routePrefix: "/docs",
+    uiConfig: {
+      docExpansion: "none",
+      deepLinking: true,
+    },
+    staticCSP: true,
+    transformStaticCSP: (header) => header,
+    transformSpecification: (swaggerObject, request, reply) => {
+      return swaggerObject;
+    },
+    transformSpecificationClone: true,
   });
 };
 
-export default root;
+export default fastifyPlugin(swaggerPlugin);

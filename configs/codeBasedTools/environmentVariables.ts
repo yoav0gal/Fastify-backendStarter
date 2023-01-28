@@ -16,3 +16,4 @@ export const ACCESS_TOKEN = loadEnvironmentVariable("ACCESS_TOKEN");
 export const ACCESS_TOKEN_EXPIRE = loadEnvironmentVariable(
   "ACCESS_TOKEN_EXPIRE"
 );
+export const APPLICATION_NAME = loadEnvironmentVariable("APPLICATION_NAME");
